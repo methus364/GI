@@ -20,11 +20,10 @@ const Product = [
         "name": "สินค้า"
     }
 ]
-
 const ProductList = () => {
     return (
         <>
-            <div className="row" >
+            <div className="row " >
             {Product.map((item, index) => (
                 <div className="card col-3 me-3 mb-2 p-0" key={index} style={{ width: "18rem" }}>
                     <img src={item.url} style={{  width: "100%",height: "16rem", objectFit: "cover" }} className="card-img-top" alt="..." />
