@@ -1,9 +1,11 @@
+import { NavLink } from "react-router-dom"
+
 const Menubar = () => {
     return (
         <div>
             <div
                 className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-                style={{ width: "280px" ,height:"100vh"}}
+                style={{ width: "280px", height: "100vh" }}
             >
                 <a
                     href="/"
@@ -12,17 +14,33 @@ const Menubar = () => {
                     <svg className="bi me-2" width="40" height="32">
                         <use xlinkHref="#bootstrap"></use>
                     </svg>
-                    <span className="fs-4">Sidebar</span>
+                    <span className="fs-4">Admin Palnal</span>
                 </a>
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
                     <li className="nav-item">
-                        <a href="#" className="nav-link active" aria-current="page">
-                            <svg className="bi me-2" width="16" height="16">
-                                <use xlinkHref="#home"></use>
-                            </svg>
+                        <NavLink
+                            to={'/admin'}
+                            end
+                            className={({ isActive }) =>
+                                isActive
+                                    ? 'text-decoration-none bg-dark text-white px-3 py-2 d-flex align-items-center rounded'
+                                    : 'text-decoration-none text-secondary px-3 py-2 d-flex align-items-center rounded hover-bg-dark hover-text-white'
+                            }>
                             Product
-                        </a>
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink
+                            to={'coures'}
+                            end
+                            className={({ isActive }) =>
+                                isActive
+                                    ? 'text-decoration-none bg-dark text-white px-3 py-2 d-flex align-items-center rounded'
+                                    : 'text-decoration-none text-secondary px-3 py-2 d-flex align-items-center rounded hover-bg-dark hover-text-white'
+                            }>
+                            Coures
+                        </NavLink>
                     </li>
                 </ul>
                 <hr />
