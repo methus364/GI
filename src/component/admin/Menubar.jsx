@@ -42,6 +42,18 @@ const Menubar = () => {
                             Coures
                         </NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink
+                            to={'addproduct'}
+                            end
+                            className={({ isActive }) =>
+                                isActive
+                                    ? 'text-decoration-none bg-dark text-white px-3 py-2 d-flex align-items-center rounded'
+                                    : 'text-decoration-none text-secondary px-3 py-2 d-flex align-items-center rounded hover-bg-dark hover-text-white'
+                            }>
+                            Add New Product
+                        </NavLink>
+                    </li>
                 </ul>
                 <hr />
                 <div className="dropdown">
