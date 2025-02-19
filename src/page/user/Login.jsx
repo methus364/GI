@@ -1,8 +1,9 @@
+import Formlogin from "../../component/user/Formlogin"
 
 const Login = () => {
   return (
     <div>
-        Login
+        <Formlogin/>
     </div>
   )
 }

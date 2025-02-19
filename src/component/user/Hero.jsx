@@ -2,8 +2,8 @@
 const Hero = () => {
   return (
     <>
-        <div className="">
-
+        <div className="container-fuid">
+            
         </div>
     </>
   )
