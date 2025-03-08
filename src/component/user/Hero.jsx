@@ -1,3 +1,5 @@
+import Footer from "./Footer";
+
 const heroImage =
   "https://cdn.pixabay.com/photo/2024/06/21/12/45/lake-8844310_960_720.jpg";
 
@@ -22,7 +24,7 @@ const couse = [
     bigtext: "Best deals ",
     hilight: "Crispy Sandwiches",
     text: "Enjoy the large size of sandwiches. Complete perfect slice of sandwiches",
-    btnMassage: "",
+    btnMassage: "Proceed to order",
     urlbtn: "/",
   },
   {
@@ -30,7 +32,7 @@ const couse = [
     bigtext: "Best deals ",
     hilight: "Crispy Sandwiches",
     text: "Enjoy the large size of sandwiches. Complete perfect slice of sandwiches",
-    btnMassage: "",
+    btnMassage: "Proceed to order",
     urlbtn: "/",
   },
 
@@ -39,7 +41,7 @@ const couse = [
     bigtext: "Best deals ",
     hilight: "Crispy Sandwiches",
     text: "Enjoy the large size of sandwiches. Complete perfect slice of sandwiches",
-    btnMassage: "",
+    btnMassage: "Proceed to order",
     urlbtn: "/",
   },
 ];
@@ -95,6 +97,7 @@ const Hero = () => {
               <option value="audi">Audi</option>
             </select>
             <a
+              href="/"
               style={{ backgroundColor: "#A35C00 ", borderRadius: "16px" }}
               className="rounded text-light  p-2 text-decoration-none"
             >
@@ -115,7 +118,7 @@ const Hero = () => {
                   className="card-img-top rounded"
                   alt="..."
                 />
-                <div className="card-body">
+                <div className="card-body bg-transparent">
                   <h5 className="card-title text-center">{item.name}</h5>
                 </div>
               </div>
@@ -125,7 +128,7 @@ const Hero = () => {
       </div>
       <div className="d-flex justify-content-center align-content-center mt-5">
         <div
-          className="d-flex flex-column bg-danger"
+          className="d-flex flex-column "
           style={{ width: 1275, height: 1800 }}
         >
           <div className="d-flex justify-content-between align-content-center m-2">
@@ -138,39 +141,78 @@ const Hero = () => {
               หลักสูตรทั้งหมด
             </a>
           </div>
+          {couse.map((item, index) => (
+            <div className="container ">
+              <div
+                className="row w-100 g-0 p-2"
+                style={{ height: 512, backgroundColor: "#F2F5FA" }}
+              >
+                {index == 1 ? (
+                  <>
+                    <div className="col  ">
+                      <img
+                        src={item.url}
+                        alt={item.bigtext}
+                        className="w-100  h-100 object-fit-cover "
+                      />
+                    </div>
 
-          <div className="container m-2">
-            <div className="row w-100" style={{ height: 512 }}>
-              <div className="col bg-info">
-                <h1 className="" style={{ marginTop: 70 }}>
-                  Best deals
-                  <span className="text-warning" style={{ fontWeight: 700 }}>
-                    Crispy <br /> Sandwiches
-                  </span>
-                </h1>
-                <p className=" mt-5 fs-4">
-                  Enjoy the large size of sandwiches. Complete perfect slice of
-                  sandwiches.
-                </p>
-                <a
-                  href="/"
-                  className=" text-decoration-none fs-5 p-2 d-flex justify-content-center align-content-center text-white border"
-                  style={{ backgroundColor: "#A35C00 ", marginTop: 100 }}
-                >
-                  Proceed to order
-                </a>
-              </div>
-              <div className="col bg-primary ">
-                <img
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y291cnNlfGVufDB8fDB8fHww"
-                  alt="mama"
-                  className="w-100 overflow-hidden "
-                />
+                    <div className="col  p-2">
+                      <h1 className="" style={{ marginTop: 70 }}>
+                        Best deals
+                        <span
+                          className="text-warning"
+                          style={{ fontWeight: 700 }}
+                        >
+                          Crispy <br /> Sandwiches
+                        </span>
+                      </h1>
+                      <p className=" mt-5 fs-4">{item.text}</p>
+                      <a
+                        href="/"
+                        className=" text-decoration-none fs-5 p-2 d-flex justify-content-center align-content-center text-white border"
+                        style={{ backgroundColor: "#A35C00 ", marginTop: 100 }}
+                      >
+                        {item.btnMassage}
+                      </a>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="col p-2">
+                      <h1 className="" style={{ marginTop: 70 }}>
+                        Best deals
+                        <span
+                          className="text-warning"
+                          style={{ fontWeight: 700 }}
+                        >
+                          Crispy <br /> Sandwiches
+                        </span>
+                      </h1>
+                      <p className=" mt-5 fs-4">{item.text}</p>
+                      <a
+                        href="/"
+                        className=" text-decoration-none fs-5 p-2 d-flex justify-content-center align-content-center text-white border"
+                        style={{ backgroundColor: "#A35C00 ", marginTop: 100 }}
+                      >
+                        {item.btnMassage}
+                      </a>
+                    </div>
+                    <div className="col  ">
+                      <img
+                        src={item.url}
+                        alt={item.bigtext}
+                        className="w-100  h-100 object-fit-cover "
+                      />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
