@@ -1,9 +1,10 @@
+import CouresList from "../../component/admin/CouresList"
 
 
 const Coures = () => {
   return (
     <div>
-      Coures
+      <CouresList/>
     </div>
   )
 }

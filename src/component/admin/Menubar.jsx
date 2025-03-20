@@ -32,6 +32,18 @@ const Menubar = () => {
                     </li>
                     <li className="nav-item">
                         <NavLink
+                            to={'addproduct'}
+                            end
+                            className={({ isActive }) =>
+                                isActive
+                                    ? 'text-decoration-none bg-dark text-white px-3 py-2 d-flex align-items-center rounded'
+                                    : 'text-decoration-none text-secondary px-3 py-2 d-flex align-items-center rounded hover-bg-dark hover-text-white'
+                            }>
+                            Add New Product
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink
                             to={'coures'}
                             end
                             className={({ isActive }) =>
@@ -44,14 +56,14 @@ const Menubar = () => {
                     </li>
                     <li className="nav-item">
                         <NavLink
-                            to={'addproduct'}
+                            to={'Addcoures'}
                             end
                             className={({ isActive }) =>
                                 isActive
                                     ? 'text-decoration-none bg-dark text-white px-3 py-2 d-flex align-items-center rounded'
                                     : 'text-decoration-none text-secondary px-3 py-2 d-flex align-items-center rounded hover-bg-dark hover-text-white'
                             }>
-                            Add New Product
+                            Add New Coures
                         </NavLink>
                     </li>
                 </ul>

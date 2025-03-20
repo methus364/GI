@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom"
 
 const Formlogin = () => {
     return (
         <>
             <div className="container-fluid  d-flex align-items-center justify-content-center bg-dark d-flex" style={{ height: "100vh" }}>
-                <div className="bg-white d-flex flex-column  align-items-center justify-content-center " style={{ height: "65vh",width:"55vh" }}>
+                <div className="bg-white d-flex flex-column  align-items-center justify-content-center " style={{ height: "65vh", width: "55vh" }}>
                     <div>
                         <h1>LOGIN</h1>
                     </div>
@@ -36,7 +37,9 @@ const Formlogin = () => {
                                 />
                             </div>
                             <button type="submit" className="btn btn-primary mt-2">
-                                Login
+                                <Link className="nav-link text-white" to="/admin">
+                                    เข้าสู่ระบบ
+                                </Link>
                             </button>
                         </form>
                     </div>

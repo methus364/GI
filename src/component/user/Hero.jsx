@@ -212,7 +212,7 @@ const Hero = () => {
           ))}
         </div>
       </div>
-      <Footer />
+      
     </>
   );
 };
