@@ -9,6 +9,7 @@ import Productinfo from "../page/user/Productinfo";
 import Addcoures from "../page/Admin/Addcoures";
 import Couresuser from "../page/user/Couresuser";
 import Team from "../page/user/Team";
+import MemberProfile from "../page/user/MemberProfile";
 
 // รวม Router สำหรับเปลี่ยนไปหน้าต่างๆ
 const router = createBrowserRouter([
@@ -23,16 +24,16 @@ const router = createBrowserRouter([
       { path: "addcoures", element: <Addcoures /> },
     ],
   },
-  // router ฝั่ง user 
+  // router ฝั่ง user
   {
     path: "/",
     children: [
       { index: true, element: <Home /> },
       { path: "login", element: <Login /> },
       { path: "product", element: <Productinfo /> },
-      { path: "coures", element: <Couresuser/> },
-      { path: "team", element: <Team/> },
-
+      { path: "coures", element: <Couresuser /> },
+      { path: "team", element: <Team /> },
+      { path: "team/:id", element: <MemberProfile /> },
     ],
   },
 ]);

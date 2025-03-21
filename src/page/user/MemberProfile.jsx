@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Navbar from "../../component/user/Navbar";
 
 // src/data/teamData.js
@@ -39,40 +39,47 @@ export const teamMembers = [
   },
 ];
 
-const Team = () => {
+const MemberProfile = () => {
+  const { id } = useParams();
+  const member = teamMembers.find((m) => m.id === id);
+
+  if (!member) return <h2 className="text-center mt-5">Member not found</h2>;
+
   return (
     <>
       <Navbar />
       <div className="container py-5">
-        <h2 className="text-center fw-bold mb-4">Our Care Team</h2>
-        <div className="row">
-          {teamMembers.map((member) => (
-            <div className="col-md-4 mb-4" key={member.id}>
-              <div className="card h-100 shadow-sm">
-                <img
-                  src={member.image}
-                  className="card-img-top"
-                  alt={member.name}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{member.name}</h5>
-                  <p className="card-text" style={{ fontSize: "0.9rem" }}>
-                    {member.title}
-                  </p>
-                  <Link
-                    to={`/team/${member.id}`}
-                    className="btn btn-outline-dark"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
+        <Link to="/team" className="btn btn-sm btn-secondary mb-4">
+          ← Back to Team
+        </Link>
+        <div className="row align-items-center">
+          <div className="col-md-4 text-center mb-4">
+            <img
+              src={member.image}
+              alt={member.name}
+              className="img-fluid rounded shadow"
+            />
+          </div>
+          <div className="col-md-8">
+            <h2>{member.name}</h2>
+            <h5 className="text-muted mb-3">{member.title}</h5>
+            <p>
+              <strong>Bio:</strong> {member.bio}
+            </p>
+            <p>
+              <strong>Education:</strong> {member.education}
+            </p>
+            <p>
+              <strong>Specialty:</strong> {member.specialty}
+            </p>
+            <p>
+              <strong>Location:</strong> {member.location}
+            </p>
+          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default Team;
+export default MemberProfile;
