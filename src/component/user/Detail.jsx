@@ -41,7 +41,7 @@ const Detail = ({ id }) => {
         <div
           className="container-fluid bg-dark d-flex flex-column align-items-center justify-content-center"
           style={{
-            height: "50vh",
+            height: "70vh",
             backgroundColor: "#333", // สีพื้นหลังที่คุณต้องการ
             padding: "20px",
           }}

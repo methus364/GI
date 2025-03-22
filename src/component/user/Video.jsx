@@ -14,14 +14,15 @@ const YouTubeEmbed = ({ videoUrl }) => {
     <div className="video-responsive">
       {videoId ? (
         <iframe
-          width="853"
-          height="480"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-        />
+        width="100%"
+        height="364vh"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="Embedded youtube"
+      />
+      
       ) : (
         <p>Invalid YouTube URL</p>
       )}

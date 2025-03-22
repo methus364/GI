@@ -11,6 +11,8 @@ import Couresuser from "../page/user/Couresuser";
 import Team from "../page/user/Team";
 import ProductDeatil from "../page/user/ProductDeatil";
 import Addnewcategory from "../page/Admin/Addnewcategory";
+import MemberProfile from "../page/user/MemberProfile";
+
 // รวม Router สำหรับเปลี่ยนไปหน้าต่างๆ
 const router = createBrowserRouter([
   {
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
       { path: "addcategory", element: <Addnewcategory /> },
     ],
   },
-  // router ฝั่ง user 
+  // router ฝั่ง user
   {
     path: "/",
     children: [
@@ -35,6 +37,9 @@ const router = createBrowserRouter([
       { path: "coures", element: <Couresuser/> },
       { path: "team", element: <Team/> },
       { path: "/product/:id", element: <ProductDeatil/> },
+      { path: "coures", element: <Couresuser /> },
+      { path: "team", element: <Team /> },
+      { path: "team/:id", element: <MemberProfile /> },
     ],
   },
 ]);
