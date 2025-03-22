@@ -53,8 +53,8 @@ const Productinfo = () => {
           <div className="my-5">
             <h2 className="text-dark">Product 1</h2>
             <div className="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4">
-              {products.map((product) => (
-                <div className="col" key={product.id}>
+              {products.map((product,index) => (
+                <div className="col" key={index}>
                   <div className="card border-0 shadow-sm text-center">
                     <img
                       src={product.url}

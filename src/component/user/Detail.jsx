@@ -1,7 +1,7 @@
 const product = [
   {
     id: "1",
-    name: "ข้าวเหนียวซิวเกลี้ยงเมืองเลย",
+    name: "ข้าวเหนียวซิวเกลี้ยงเมืองเลย1",
     commonName: "Siwgleang Mueang Loei Sticky Rice หรือ Khao NeawSiwgleang Mueang Loei",
     scientificName: "Oryza sativa L",
     family: "Poaceae",
@@ -13,11 +13,14 @@ const product = [
     agricultural: "ความสูงของต้นกล้าเฉลี่ย 49.90 เซนติเมตร, ลำต้นยาวเฉลี่ย 61.21 เซนติเมตร, ความยาวของรวงเฉลี่ย 17.65 เซนติเมตร, จำนวน 1 หน่อต่อกอ,การชูรวงเหนือใบธงชูรวงดีมาก, อายุวันออกดอก 75-78 วัน,ลำต้นแข็งแรงปานกลาง, มีการติดเมล็ด 90%, การร่วงของเมล็ดน้อยและน้ำหนัก 100 เมล็ด 3.15 กรัม",
     botanical: " แผ่นใบสีเขียวมีขนบ้างเล็กน้อย, กาบใบมีสีเขียว,มุมของยอดแผ่นใบตั้งตรง, สีของลิ้นใบ (เยื่อกั้นน้ำฝน),มีสีขาวรูปร่างแหลม, มีความยาวยาวเฉลี่ย 13.80 มิลลิเมตร,หูใบมีสีขาว, สีของข้อต่อใบกับกาบใบเขียว, สีของปล้องสีเขียว,กอตั้ง, มุมของใบธงหักลง, มุมหรือลักษณะกอตั้งตรงสีของปล้องด้านนอกมีสีเขียว, ไม่มีการแตกระแง้, ลักษณะรวงกระจายปานกลาง, ก้านรวงตั้งตรง, การแก่ของใบปานกลางและการแห้งของใบใต้ใบธงแห้งช้า",
     Seeds: "เปลือกของเมล็ดสีฟางไม่มีขน, ไม่มีหางข้าว, ยอดเมล็ดมีสีฟาง,ข้าวกล้องสีขาว,รูปร่างเรียว, ความยาวของเมล็ดข้าวเปลือกเฉลี่ย 10.33 มิลลิเมตร และความกว้างของเมล็ดข้าวเปลือกเฉลี่ย 3.47 มิลลิเมตร",
-    requestNumber:"1101",
-    registrationNumber:"123",
-    requestDate:"2025-03-21",
-    registrationDate:"2025-03-21",
-    category:"Fruits"
+    requestNumber: "1101",
+    registrationNumber: "123",
+    requestDate: "2025-03-21",
+    registrationDate: "2025-03-21",
+    category: "Fruits",
+    latitude: "",
+    longitude: "",
+    imge:[]
   }
 ]
 const Detail = ({ id }) => {
@@ -51,7 +54,7 @@ const Detail = ({ id }) => {
             style={{ height: "65vh", width: "80vh" }}
           >
             <h1 className="display-3 text-center" style={{ fontSize: "3rem" }}>
-              {productItem.name}
+              {productItem.name} {productItem.id}
             </h1>
             <p className="fs-4 text-center" style={{ fontSize: "1.5rem" }}>
               หลักสูตรอบรม
@@ -96,7 +99,7 @@ const Detail = ({ id }) => {
             </p>
             {/* ข้อมูลการขึ้นทะเบียน */}
             <h2 className="mt-5 mb-3" style={{ fontSize: "1.75rem" }}>
-            ข้อมูลการขึ้นทะเบียน
+              ข้อมูลการขึ้นทะเบียน
             </h2>
             <p style={{ fontSize: "1.25rem" }}>{productItem.history}</p>
 

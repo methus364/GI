@@ -10,7 +10,7 @@ const ProductDeatil = () => {
         <>
             <Navbar />
             <div className="container-fluid ">
-                <Detail id="1" />
+                <Detail id={id} />
                 <div className="row justify-content-center mt-2 align-content-center">
                     <div className="col">
                         <Map />

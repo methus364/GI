@@ -31,7 +31,8 @@ const Formproduct = () => {
         latitude: "",
         longitude: "",
         category: "",
-        image: null,
+        url:"",
+        image: [],
     });
 
     // ฟังก์ชัน handleChange สำหรับอัปเดต state
@@ -44,13 +45,19 @@ const Formproduct = () => {
     };
 
     // ฟังก์ชัน handleFileChange สำหรับจัดการการอัปโหลดไฟล์
+    // const handleFileChange = (e) => {
+    //     setForm((prevForm) => ({
+    //         ...prevForm,
+    //         image: e.target.files[0], // เก็บไฟล์รูปภาพใน state
+    //     }));
+    // };
     const handleFileChange = (e) => {
+        const files = Array.from(e.target.files);
         setForm((prevForm) => ({
             ...prevForm,
-            image: e.target.files[0], // เก็บไฟล์รูปภาพใน state
+            image: files
         }));
     };
-
     // ฟังก์ชัน handleSubmit สำหรับส่งฟอร์ม
     const handleSubmit = (e) => {
         e.preventDefault(); // ป้องกันหน้ารีเฟรช
@@ -64,6 +71,7 @@ const Formproduct = () => {
 
         console.log("Form Data Submitted:", form);
     };
+    
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -226,9 +234,7 @@ const Formproduct = () => {
                             />
                         </div>
                     </div>
-
-
-                    <div className="row mb-3">
+                    <div className="row mb3">
                         <div className="col">
                             <label htmlFor=" latitude" className="form-label">
                                 ละติจูด
@@ -319,7 +325,22 @@ const Formproduct = () => {
                             />
                         </div>
                     </div>
-
+                    <div className="row mb-3">
+                        <div className="col">
+                            <label htmlFor="requestNumber" className="form-label">
+                                ลิ้งคลิปวิดิโอ
+                            </label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="url"
+                                name="url"
+                                value={form.url}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                    </div>
                     <div className="row mb-3">
                         <div className="col">
                             <label htmlFor="history" className="form-label">
@@ -427,6 +448,8 @@ const Formproduct = () => {
                         <input
                             type="file"
                             className="form-control"
+                            multiple
+                            // accept="image/*"
                             id="image"
                             name="image"
                             onChange={handleFileChange}
