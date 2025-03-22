@@ -45,9 +45,9 @@ const CouresList = () => {
   const [showModal, setShowModal] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
 
-  const handleEdit = (index) => {
-    setEditIndex(index);
-    const product = products[index];
+  const handleEdit = (id) => {
+    setEditIndex(id);
+    const product = products[id];
     setForm({
       ...form,
       productName: product.name,
@@ -55,10 +55,10 @@ const CouresList = () => {
     setShowModal(true);
   };
 
-  const handleDelete = (index) => {
-    const updatedProducts = products.filter((_, i) => i !== index);
+  const handleDelete = (id) => {
+    const updatedProducts = products.filter((_, i) => i !== id);
     setProducts(updatedProducts);
-  };
+  };  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -94,10 +94,10 @@ const CouresList = () => {
   return (
     <>
       <div className="row">
-        {products.map((item, index) => (
+        {products.map((item, id) => (
           <div
             className="card col-3 me-3 mb-2 p-0"
-            key={index}
+            key={id}
             style={{ width: "18rem" }}
           >
             <img
@@ -112,18 +112,18 @@ const CouresList = () => {
             />
             <div className="card-body">
               <h5 className="card-title">
-                {item.name} {index + 1}
+                {item.name} {id }
               </h5>
               <div className="row">
                 <button
                   className="col btn btn-warning m-1 text-white"
-                  onClick={() => handleEdit(index)}
+                  onClick={() => handleEdit(id)}
                 >
                   แก้ไข
                 </button>
                 <button
                   className="col btn btn-danger m-1 text-white"
-                  onClick={() => handleDelete(index)}
+                  onClick={() => handleDelete(id)}
                 >
                   ลบ
                 </button>

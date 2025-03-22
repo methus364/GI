@@ -1,4 +1,3 @@
-import Footer from "./Footer";
 
 const heroImage =
   "https://cdn.pixabay.com/photo/2024/06/21/12/45/lake-8844310_960_720.jpg";

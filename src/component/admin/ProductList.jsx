@@ -2,46 +2,69 @@ import { useState } from "react";
 
 const Product = [
     {
-        url: "https://cdn.pixabay.com/photo/2018/07/08/21/35/wheat-3524861_1280.jpg",
-        name: "สินค้า1"
+      url: "https://cdn.pixabay.com/photo/2018/07/08/21/35/wheat-3524861_1280.jpg",
+      name: "สินค้า1",
+      id: 1,
     },
     {
-        url: "https://cdn.pixabay.com/photo/2014/06/20/19/36/wheat-crops-373360_960_720.jpg",
-        name: "สินค้า2"
+      url: "https://cdn.pixabay.com/photo/2014/06/20/19/36/wheat-crops-373360_960_720.jpg",
+      name: "สินค้า20",
+      id: 2,
     },
     {
-        url: "https://cdn.pixabay.com/photo/2018/07/08/21/35/wheat-3524861_1280.jpg",
-        name: "สินค้า3"
+      url: "https://cdn.pixabay.com/photo/2018/07/08/21/35/wheat-3524861_1280.jpg",
+      name: "สินค้า3",
+      id: 3,
     },
     {
-        url: "https://cdn.pixabay.com/photo/2018/07/08/21/35/wheat-3524861_1280.jpg",
-        name: "สินค้า4"
+      url: "https://cdn.pixabay.com/photo/2018/07/08/21/35/wheat-3524861_1280.jpg",
+      name: "สินค้า4",
+      id: 4,
     },
     {
-        url: "https://cdn.pixabay.com/photo/2018/07/08/21/35/wheat-3524861_1280.jpg",
-        name: "สินค้า5"
-    }
+      url: "https://cdn.pixabay.com/photo/2018/07/08/21/35/wheat-3524861_1280.jpg",
+      name: "สินค้า5",
+      id: 5,
+    },
+  ];
+const categories = [
+    { id: 1, name: "Fruits" },
+    { id: 2, name: "Vegetables" },
+    { id: 3, name: "Dairy Products" },
+    { id: 4, name: "Snacks" },
+    { id: 5, name: "Beverages" },
 ];
 
 const ProductList = () => {
     const [products, setProducts] = useState(Product);
-    const [form, setForm] = useState({
-        productName: "",
-        requestNumber: "",
-        registrationNumber: "",
-        requestDate: "",
-        registrationDate: "",
-        productList: "",
-        address: "",
-        description: "",
-        image: null
-    });
+     const [form, setForm] = useState({
+            name: "",
+            commonName: "",
+            scientificName: "",
+            family: "",
+            order: "",
+            class: "",
+            phylum: "",
+            history: "",
+            general: "",
+            agricultural: "",
+            botanical: "",
+            seeds: "",
+            requestNumber: "",
+            registrationNumber: "",
+            requestDate: "",
+            registrationDate: "",
+            latitude: "",
+            longitude: "",
+            category: "",
+            image: null,
+        });
     const [showModal, setShowModal] = useState(false);
     const [editIndex, setEditIndex] = useState(null);
 
-    const handleEdit = (index) => {
-        setEditIndex(index);
-        const product = products[index];
+    const handleEdit = (id) => {
+        setEditIndex(id);
+        const product = products[id];
         setForm({
             ...form,
             productName: product.name
@@ -49,8 +72,8 @@ const ProductList = () => {
         setShowModal(true);
     };
 
-    const handleDelete = (index) => {
-        const updatedProducts = products.filter((_, i) => i !== index);
+    const handleDelete = (id) => { 
+        const updatedProducts = products.filter((_, i) => i !== id);
         setProducts(updatedProducts);
     };
 
@@ -79,10 +102,10 @@ const ProductList = () => {
     return (
         <>
             <div className="row">
-                {products.map((item, index) => (
+                {products.map((item, id) => (
                     <div
                         className="card col-3 me-3 mb-2 p-0"
-                        key={index}
+                        key={id}
                         style={{ width: "18rem" }}
                     >
                         <img
@@ -97,18 +120,18 @@ const ProductList = () => {
                         />
                         <div className="card-body">
                             <h5 className="card-title">
-                                {item.name} {index + 1}
-                            </h5>   
+                                {item.name} {id}
+                            </h5>
                             <div className="row">
                                 <button
                                     className="col btn btn-warning m-1 text-white"
-                                    onClick={() => handleEdit(index)}
+                                    onClick={() => handleEdit(id)}
                                 >
                                     แก้ไข
                                 </button>
                                 <button
                                     className="col btn btn-danger m-1 text-white"
-                                    onClick={() => handleDelete(index)}
+                                    onClick={() => handleDelete(id)}
                                 >
                                     ลบ
                                 </button>
@@ -135,16 +158,17 @@ const ProductList = () => {
                                     <div className="container">
                                         <div className="row mb-3">
                                             <div className="col">
-                                                <label htmlFor="productName" className="form-label">
+                                                <label htmlFor="name" className="form-label">
                                                     ชื่อสินค้า
                                                 </label>
                                                 <input
                                                     type="text"
                                                     className="form-control"
-                                                    id="productName"
-                                                    name="productName"
-                                                    value={form.productName}
+                                                    id="name"
+                                                    name="name"
+                                                    value={form.name}
                                                     onChange={handleChange}
+                                                    required
                                                 />
                                             </div>
                                             <div className="col">
@@ -158,6 +182,7 @@ const ProductList = () => {
                                                     name="requestNumber"
                                                     value={form.requestNumber}
                                                     onChange={handleChange}
+                                                    required
                                                 />
                                             </div>
                                         </div>
@@ -173,6 +198,7 @@ const ProductList = () => {
                                                     name="registrationNumber"
                                                     value={form.registrationNumber}
                                                     onChange={handleChange}
+                                                    required
                                                 />
                                             </div>
                                             <div className="col">
@@ -186,6 +212,7 @@ const ProductList = () => {
                                                     name="requestDate"
                                                     value={form.requestDate}
                                                     onChange={handleChange}
+                                                    required
                                                 />
                                             </div>
                                         </div>
@@ -201,46 +228,262 @@ const ProductList = () => {
                                                     name="registrationDate"
                                                     value={form.registrationDate}
                                                     onChange={handleChange}
+                                                    required
                                                 />
                                             </div>
+
                                             <div className="col">
-                                                <label htmlFor="productList" className="form-label">
-                                                    รายการสินค้า
+                                                <label htmlFor="category" className="form-label">
+                                                    หมวดหมู่
+                                                </label>
+                                                <select
+                                                    className="form-select"
+                                                    id="category"
+                                                    name="category"
+                                                    value={form.category}
+                                                    onChange={handleChange}
+                                                    required
+                                                >
+                                                    <option value="">เลือกหมวดหมู่</option>
+                                                    {categories.map((category) => (
+                                                        <option key={category.id} value={category.name}>
+                                                            {category.name}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="commonName" className="form-label">
+                                                    ชื่อสามัญ (Common Name)
                                                 </label>
                                                 <input
                                                     type="text"
                                                     className="form-control"
-                                                    id="productList"
-                                                    name="productList"
-                                                    value={form.productList}
+                                                    id="commonName"
+                                                    name="commonName"
+                                                    value={form.commonName}
                                                     onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="col">
+                                                <label htmlFor="scientificName" className="form-label">
+                                                    ชื่อวิทยาศาสตร์ (Scientific Name)
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="scientificName"
+                                                    name="scientificName"
+                                                    value={form.scientificName}
+                                                    onChange={handleChange}
+                                                    required
                                                 />
                                             </div>
                                         </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="address" className="form-label">
-                                                ที่อยู่
-                                            </label>
-                                            <textarea
-                                                className="form-control"
-                                                id="address"
-                                                name="address"
-                                                value={form.address}
-                                                onChange={handleChange}
-                                            />
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="phylum" className="form-label">
+                                                    ไฟลัม (Phylum)
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="phylum"
+                                                    name="phylum"
+                                                    value={form.phylum}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="col">
+                                                <label htmlFor="family" className="form-label">
+                                                    วงศ์ (Family)
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="family"
+                                                    name="family"
+                                                    value={form.family}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="description" className="form-label">
-                                                รายละเอียด
-                                            </label>
-                                            <textarea
-                                                className="form-control"
-                                                id="description"
-                                                name="description"
-                                                value={form.description}
-                                                onChange={handleChange}
-                                            />
+
+
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor=" latitude" className="form-label">
+                                                    ละติจูด
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control"
+                                                    id="latitude"
+                                                    name="latitude"
+                                                    value={form.latitude}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="col">
+                                                <label htmlFor=" longitude" className="form-label">
+                                                    ลองจิจูด
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control"
+                                                    id=" longitude"
+                                                    name=" longitude"
+                                                    value={form.longitude}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
                                         </div>
+
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="order" className="form-label">
+                                                    อันดับ (Order)
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="order"
+                                                    name="order"
+                                                    value={form.order}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="col">
+                                                <label htmlFor="class" className="form-label">
+                                                    ชั้น (Class)
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="class"
+                                                    name="class"
+                                                    value={form.class}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="requestNumber" className="form-label">
+                                                    หมายเลขคำขอ
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="requestNumber"
+                                                    name="requestNumber"
+                                                    value={form.requestNumber}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="col">
+                                                <label htmlFor="registrationNumber" className="form-label">
+                                                    หมายเลขทะเบียน
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="registrationNumber"
+                                                    name="registrationNumber"
+                                                    value={form.registrationNumber}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="history" className="form-label">
+                                                    ประวัติ
+                                                </label>
+                                                <textarea
+                                                    className="form-control"
+                                                    id="history"
+                                                    name="history"
+                                                    value={form.history}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="general" className="form-label">
+                                                    ลักษณะทั่วไป
+                                                </label>
+                                                <textarea
+                                                    className="form-control"
+                                                    id="general"
+                                                    name="general"
+                                                    value={form.general}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="agricultural" className="form-label">
+                                                    ด้านการเกษตร
+                                                </label>
+                                                <textarea
+                                                    className="form-control"
+                                                    id="agricultural"
+                                                    name="agricultural"
+                                                    value={form.agricultural}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="botanical" className="form-label">
+                                                    พฤกษศาสตร์
+                                                </label>
+                                                <textarea
+                                                    className="form-control"
+                                                    id="botanical"
+                                                    name="botanical"
+                                                    value={form.botanical}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="seeds" className="form-label">
+                                                    เมล็ดพันธุ์
+                                                </label>
+                                                <textarea
+                                                    className="form-control"
+                                                    id="seeds"
+                                                    name="seeds"
+                                                    value={form.seeds}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+
                                         <div className="mb-3">
                                             <label htmlFor="image" className="form-label">
                                                 เพิ่มรูปภาพ
@@ -251,6 +494,7 @@ const ProductList = () => {
                                                 id="image"
                                                 name="image"
                                                 onChange={handleFileChange}
+                                                required
                                             />
                                         </div>
                                         <button type="submit" className="btn btn-primary mt-2">

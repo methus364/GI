@@ -6,8 +6,8 @@ import Navbar from "../../component/user/Navbar"
 const Team = () => {
   return (
     <>
-        <Navbar/>
-        Team 
+      <Navbar/>
+
     </>
   )
 }

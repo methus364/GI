@@ -1,9 +1,9 @@
-// import { NavLink } from "react-router-dom";
+
 
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Logo
@@ -28,7 +28,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/coures">
-                  หลักสูตรอบรมณ์
+                  หลักสูตรอบรม
                 </a>
               </li>
               <li className="nav-item">
@@ -55,7 +55,7 @@ const Navbar = () => {
                 aria-label="Search"
               />
             </form>
-            <a className="btn btn-outline-success " href="/login">
+            <a className="btn btn-outline-success" href="/login">
               เข้าสู่ระบบ
             </a>
           </div>
