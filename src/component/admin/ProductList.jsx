@@ -23,7 +23,7 @@ const Product = [
         latitude: "",
         longitude: "",
         imge: [],
-        url:""
+        url: ""
     },
     {
         url: "https://cdn.pixabay.com/photo/2014/06/20/19/36/wheat-crops-373360_960_720.jpg",
@@ -90,23 +90,23 @@ const ProductList = () => {
             ...form,
             name: product.name,
             commonName: product.commonName,
-            scientificName: product.scientificName ,
+            scientificName: product.scientificName,
             family: product.family,
             order: product.order,
             class: product.class,
             phylum: product.phylum,
             history: product.history,
-            general:product.general,
-            agricultural:product.agricultural,
-            botanical:product.botanical,
-            seeds:product.seeds,
-            requestNumber:product.requestNumber,
-            registrationNumber:product.registrationNumber,
-            requestDate:product.requestDate,
-            registrationDate:product.registrationDate,
-            latitude:product.latitude,
-            longitude:product.longitude,
-            category:product.category,
+            general: product.general,
+            agricultural: product.agricultural,
+            botanical: product.botanical,
+            seeds: product.seeds,
+            requestNumber: product.requestNumber,
+            registrationNumber: product.registrationNumber,
+            requestDate: product.requestDate,
+            registrationDate: product.registrationDate,
+            latitude: product.latitude,
+            longitude: product.longitude,
+            category: product.category,
             image: [],
             url: product.url,
         });
@@ -442,6 +442,22 @@ const ProductList = () => {
                                                     name="class"
                                                     value={form.class}
                                                     onChange={handleChange}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <label htmlFor="requestNumber" className="form-label">
+                                                    ลิ้งคลิปวิดิโอ
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="url"
+                                                    name="url"
+                                                    value={form.url}
+                                                    onChange={handleChange}
+                                                    required
                                                 />
                                             </div>
                                         </div>
